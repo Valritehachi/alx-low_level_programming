@@ -1,20 +1,22 @@
 #include <stdio.h>
 
 /**
- * main - function to sum multiples of 3 and 5 below 1024 
- * Return: 0
+ * main - function to sum multiples of 3 and 5 below 1024
+ * Return: Always 0.
  */
 
 int main(void)
 {
-int a;
-int sum = 0;
+int i, sum = 0;
 
-for (a = 1024 ; a < 10 ; a++)
+for (i = 0; i < 1024; i++)
 {
-if (a % 3 == 0 || a % 5 == 0)
-sum = sum + a;
+if ((i % 3) == 0 || (i % 5) == 0)
+sum += i;
 }
 
-printf("%d", sum);
+printf("%d\n", sum);
+
+return (0);
 }
+
