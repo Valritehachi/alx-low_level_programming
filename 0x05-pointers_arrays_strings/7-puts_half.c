@@ -24,5 +24,5 @@ while (half_string < full_string)
 putchar(str[half_string]);
 half_string++;
 }
-
+putchar('\n');
 }

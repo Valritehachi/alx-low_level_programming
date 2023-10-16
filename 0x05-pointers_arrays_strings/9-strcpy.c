@@ -2,7 +2,7 @@
 
 /**
 *_strcpy - ,copies the string the src points to
-*@src; - string type
+*@src: - string type
 *@dest: - string type
 *Description: copy string pointed to by pointer
 *Return: pointer to 'dest'

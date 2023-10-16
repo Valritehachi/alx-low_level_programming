@@ -9,7 +9,8 @@ void rev_string(char *s)
 int length, z, half;
 char temp;
 
-for (length = 0; s[length] != '\0'; length++);
+for (length = 0; s[length] != '\0';)
+length++;
 z = 0;
 half = length / 2;
 
