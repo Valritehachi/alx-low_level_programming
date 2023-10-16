@@ -9,29 +9,21 @@
  * of a specified length from a defined character set.
  *
  * Return: 0 upon successful execution
- */
+*/
+
 int main(void)
 {
+int sum;
+char c;
 
-srand(time(NULL));
-
-int password_length = 10;
-
-char charset[] = "abcdefghijklmnopqrstuvwxyz"
-"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-"0123456789";
-
-printf("Random Password: ");
-
-for (int i = 0; i < password_length; i++)
+strand(time(NULL));
+sum = 0;
+while (sum <= 2645)
 {
 
-int index = rand() % (sizeof(charset) - 1);
-putchar(charset[index]);
-}
-
-putchar('\n');
+c = rand() % 128;
+sum += c;
+putchar(2772 - sum);
 
 return (0);
 }
-
