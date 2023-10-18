@@ -1,13 +1,15 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
- *leet - encodes a string into 1337.
+ * leet - Encodes a string into 1337.
  *Letters a and A are replaced by 4.
  *Letters e and E are replaced by 3.
  *Letters o and O are replaced by 0.
  *Letters t and T are replaced by 7.
  *Letters l and L are replaced by 4.
  *@s: pointer to the string.
+ * main - Entry point of the program.
  *Return: pointer to s.
 */
 
@@ -20,18 +22,26 @@ char leetNums[] = "4437011";
 while (s[string_length] != '\0')
 {
 int leetCount = 0;
+int replacementMade = 0;
 
 while (leetCount < 10)
 {
 if (leetLetters[leetCount] == s[string_length])
 {
 s[string_length] = leetNums[leetCount];
-break;
+replacementMade = 1;
 }
 leetCount++;
 }
 
+if (replacementMade)
+{
+replacementMade = 0;
+}
+else
+{
 string_length++;
+}
 }
 
 return (s);
