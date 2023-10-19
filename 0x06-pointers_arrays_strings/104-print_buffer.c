@@ -1,63 +1,53 @@
-#include <stdio.h>
 #include "main.h"
+#include <stdio.h>
+#include <inttypes.h>
+#include <stdint.h>
 
 /**
- * print_buffer - Prints the content of a buffer in a specified format.
- * @b: The buffer to be printed.
- * @size: The number of bytes to print.
+ * print_buffer - prints a buffer.
+ *@b: the buffer
+ *@size: size of data printed out.
+ * Return: Always 0.
  */
 void print_buffer(char *b, int size)
 {
-if (size <= 0)
-{
-printf("\n");
-return;
+	int counter;
+	int j;
+	char c;
+
+	if (size <= 0)
+	{
+		printf("\n");
+		return;
+	}
+	/* printf("%#p\n",(void *)b);*/
+	counter=0;
+	while(counter < size)
+	{
+		printf("%08x: ", counter);
+		for(j=0; j < 10; j+=2)
+		{
+			if( (counter + j ) < size)
+				printf("%02x",b[ counter + j]); 
+			else 
+				printf("  ");
+			if( (counter + j + 1) < size)
+				printf("%02x ",b[ counter + j + 1]);
+			else
+				printf("   ");
+
+		
+		}
+		for(j=0; j < 10; j++)
+                {
+                        if( (counter + j ) < size)
+			{
+				c = b[ counter + j];
+                                printf("%c", (c >= 32) ? c : '.');
+			}
+                }
+		counter += 10;
+		printf("\n");
+	}
 }
 
-for (int i = 0; i < size; i += 10)
-{
-printf("%08x: ", i);
-
-for (int j = i; j < i + 10; j++)
-{
-if (j < size)
-printf("%02x%s", (unsigned char)b[j], (j % 2 == 1) ? " " : "");
-else
-printf("  ");
-
-if (j == i + 9)
-printf(" ");
-}
-
-for (int j = i; j < i + 10; j++)
-{
-if (j < size)
-{
-if (b[j] >= 32 && b[j] <= 126)
-printf("%c", b[j]);
-else
-printf(".");
-}
-else
-printf(" ");
-}
-
-printf("\n");
-}
-}
-
-/**
- * main - Entry point of the program.
- *
- * Return: Always 0.
- */
-
-int main(void)
-{
-char buffer[] = "A sample buffer to test the print_buffer function.12345";
-int size = sizeof(buffer);
-
-print_buffer(buffer, size);
-
-return (0);
-}
