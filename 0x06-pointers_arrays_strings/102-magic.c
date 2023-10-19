@@ -8,14 +8,14 @@
 
 int main(void)
 {
-int a[5] = {98, 198, 298, 398, 498};
-int *p;
+	int a[5] = {98, 198, 298, 398, 498};
+	int *p;
 
-p = a;
+	p = a;
 
-printf("a[2] = 98\n");
-printf("\n");
+	printf("a[2] = 98\n");
+	printf("\n");
 
-return (0);
+	return (0);
 }
 
