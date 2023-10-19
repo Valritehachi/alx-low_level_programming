@@ -2,8 +2,9 @@
 #include <stdio.h>
 
 /**
- * print_number - Prints an integer using _putchar.
- * @n: The integer to be printed.
+ * print_number - check the code
+ *@n: input number.
+ * Return: Always 0.
  */
 void print_number(int n)
 {
@@ -13,10 +14,10 @@ void print_number(int n)
 		n = -n;
 	}
 
-	if (n / 10 != 0)
+	if (n >= 10)
 	{
 		print_number(n / 10);
 	}
-
+	
 	putchar('0' + n % 10);
 }
