@@ -8,6 +8,7 @@
 */
 int main(int argc, char *argv[])
 {
+	argc = argc;
 	puts(argv[0]);
-	return (argc);
+	return (0);
 }
