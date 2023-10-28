@@ -8,42 +8,42 @@
 * Return: 0.
 */
 
-int main(int argc, char *argv)
+int main(int argc, char *argv[])
 {
-int num, result;
-unsigned int j;
-char *p
-
-int cents[] = {25, 10, 5, 2, 1};
+int cents, coins = 0;
 
 if (argc != 2)
 {
 printf("Error\n");
 return (1);
 }
-num = strtol(argv[1], &p, 10);
-result = 0;
-if (j*p)
+cents = atoi(argv[1]);
+
+while (cents > 0)
 {
-while (num > 1)
+coins++;
+if ((cents - 25) >= 0)
 {
-for (j = 0; j < sizeof(cents[j]); j++)
+cents -= 25;
+continue;
+}
+if ((cents - 10) >= 0)
 {
-if (num >= cents[j])
+cents -= 10;
+continue;
+}
+if ((cents - 5) >= 0)
 {
-result += num /cents[j];
-num = num % cents[j];
+cents -= 5;
+continue;
 }
-}
-}
-if ( num == 1)
-result++
-}
-else
+if ((cents - 2) >= 0)
 {
-printf("Error\n");
-return (1);
+cents -= 2;
+continue;
 }
-printf("%d\n", result);
+cents--;
+}
+printf("%d\n", coins);
 return (0);
 }
