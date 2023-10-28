@@ -9,7 +9,7 @@
 
 int main(int argc, char *argv[])
 {
-int num, cent, i;
+int num, j, result;
 
 int coins[] = {25, 10, 5, 2, 1};
 
@@ -19,20 +19,20 @@ printf("Error\n");
 return (1);
 }
 num = atoi(argv[1]);
-cent = 0;
+result = 0;
 if (num < 0)
 {
 printf("0\n");
 return (0);
 }
-for (i = 0; i < 5 && num >= 0; i++)
+for (j = 0; j < 5 && num >= 0; j++)
 {
-while (num >= coins[i])
+while (num >= coins[j])
 {
-cent++;
-num -= coins[i];
+result++;
+num -= coins[j];
 }
 }
-printf("%d\n", cent);
+printf("%d\n", result);
 return (0);
 }
