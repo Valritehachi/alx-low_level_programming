@@ -9,8 +9,8 @@
 */
 int main(int argc, char *argv[])
 {
-	int cents, i;
-	int places[5] = {25, 10, 5, 2, 1};
+	int cents;
+	/* int places[5] = {25, 10, 5, 2, 1}; */
 	int coins;
 
 	if (argc != 2)
@@ -24,17 +24,23 @@ int main(int argc, char *argv[])
 		puts("0\n");
 		return (1);
 	}
-	if (cents == 0)
-	{
-		puts("0\n");
-		return (0);
-	}
 	coins = 0;
-	for (i = 0; i < 5; i++)
-	{
-		coins += cents / places[i];
-		cents = cents % places[i];
-	}
+	coins += cents / 25;
+	cents = cents % 25;
+	coins += cents / 10;
+	cents = cents % 10;
+	coins += cents / 5;
+	cents = cents % 5;
+	coins += cents / 2;
+	cents = cents % 2;
+	coins += cents;
+	/**
+	* for (i = 0; i < 5; i++)
+	* {
+	*	coins += cents / places[i];
+	*	cents = cents % places[i];
+	* }
+	*/
 	printf("%d\n", coins);
 	return (0);
 }
