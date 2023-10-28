@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	}
 	if (cents == 0)
 	{
-		puts("Error\n");
+		puts("0\n");
 		return (0);
 	}
 	coins = 0;
