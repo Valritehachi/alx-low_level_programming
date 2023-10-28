@@ -1,4 +1,5 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
 * main - main function
@@ -9,29 +10,39 @@
 
 int main(int argc, char *argv)
 {
-int num, j, result;
+int num, result;
+unsigned int j;
+char *p
 
-int coins[] = {25, 10, 5, 2, 1};
+int cents[] = {25, 10, 5, 2, 1};
 
 if (argc != 2)
 {
 printf("Error\n");
 return (1);
 }
-num = atoi(argv[1]);
+num = strtol(argv[1], &p, 10);
 result = 0;
-if (num < 0)
+if (j*p)
 {
-printf("0\n");
-return (0);
+while (num > 1)
+{
+for (j = 0; j < sizeof(cents[j]); j++)
+{
+if (num >= cents[j])
+{
+result += num /cents[j];
+num = num % cents[j];
 }
-for (j = 0; j < 5 && num >= 0; j++)
-{
-while (num >= coins[j])
-{
-result++;
-num -= coins[j];
 }
+}
+if ( num == 1)
+result++
+}
+else
+{
+printf("Error\n");
+return (1);
 }
 printf("%d\n", result);
 return (0);
