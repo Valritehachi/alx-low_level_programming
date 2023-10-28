@@ -49,13 +49,13 @@ str_to_int = atoi(argv[count]);
 
 sum += str_to_int;
 }
-else 
+else
 {
 printf("Error\n");
 return (1);
 }
 count++;
 }
-printf("%d/n", sum);
+printf("%d\n", sum);
 return (0);
 }
