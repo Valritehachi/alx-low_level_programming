@@ -24,11 +24,13 @@ int main(int argc, char *argv[])
 		puts("0\n");
 		return (1);
 	}
+	/*
 	if (cents == 0)
 	{
 		puts("Error\n");
 		return (1);
 	}
+	*/
 	coins = 0;
 	for (i = 0; i < 5; i++)
 	{
