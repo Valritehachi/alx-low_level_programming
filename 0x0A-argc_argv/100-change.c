@@ -29,6 +29,7 @@ int main(int argc, char *argv[])
 		coins += cents / places[i];
 		cents = cents % places[i];
 	}
-	printf("%d\n", coins);
+	printf("%d", coins);
 	return (0);
 }
+
