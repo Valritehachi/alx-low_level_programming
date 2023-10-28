@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	if (cents < 0)
 	{
 		puts("0\n");
-		return (1);
+		return (0);
 	}
 	coins = 0;
 	for (i = 0; i < 5; i++)
