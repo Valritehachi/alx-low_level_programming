@@ -15,15 +15,15 @@ char *s;
 int w = 0, x = 0, y = 0, z = 0;
 
 if (s1 == NULL)
-s1 = " ";
+s1 = "";
 
 if (s2 == NULL)
-s2 = " ";
+s2 = "";
 
 while (s1[w])
 w++;
 
-while (s1[x])
+while (s2[x])
 x++;
 z = w + x;
 s = malloc((sizeof(char) * z) +1);
@@ -34,7 +34,7 @@ return (NULL);
 x = 0;
 while (y < z)
 {
-if (y <= w)
+if (y < w)
 s[y] = s1[y];
 
 if (y >= w)
