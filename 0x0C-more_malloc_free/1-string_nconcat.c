@@ -28,7 +28,7 @@ c++;
 if (n >= c)
 d = a + c;
 else
-d = a + c;
+d = a + n;
 
 str = malloc(sizeof(char) * d + 1);
 if (str == NULL)
