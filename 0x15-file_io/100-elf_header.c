@@ -110,7 +110,7 @@ case ELFDATA2MSB:
 printf("2's complement, big endian\n");
 break;
 default:
- printf("<unknown: %x>\n", e_ident[EI_CLASS]);
+printf("<unknown: %x>\n", e_ident[EI_CLASS]);
 }
 }
 
@@ -257,7 +257,7 @@ void close_elf(int elf)
 if (close(elf) == -1)
 {
 dprintf(STDERR_FILENO,
- "Error: Can't close fd %d\n", elf);
+"Error: Can't close fd %d\n", elf);
 exit(98);
 }
 }
@@ -309,6 +309,4 @@ print_entry(header->e_entry, header->e_ident);
 free(header);
 close_elf(o);
 return (0);
-
-
 }
