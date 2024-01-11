@@ -5,7 +5,7 @@
 /**
  * f4 - ..
  * @len: len..
- * @usrn: username
+ * @usrn: ...
  * Return: 0
  */
 int f4(char *usrn, int len)
@@ -20,7 +20,7 @@ int f4(char *usrn, int len)
 	while (b < len)
 	{
 		if (a < usrn[b])
-			a = usrn[b];
+		a = usrn[b];
 		b += 1;
 	}
 
@@ -32,8 +32,8 @@ int f4(char *usrn, int len)
 
 /**
  * f5 - ....
- * @usrn: username
- * @len: length
+ * @usrn: ..
+ * @len: ...
  * Return: 0
  */
 int f5(char *usrn, int len)
@@ -43,43 +43,38 @@ int f5(char *usrn, int len)
 
 	a = b = 0;
 
-	while (b< len)
+	while (b < len)
 	{
 		a = a + usrn[b] * usrn[b];
 		b += 1;
 	}
-
 	return (((unsigned int)a ^ 239) & 63);
 }
 
 /**
- * f6 - generates a random char
- *
- * @usrn: username
- * Return: a random char
+ * f6 - ....
+ * @usrn: ...
+ * Return: 0
  */
 int f6(char *usrn)
 {
 	int a;
 	int b;
 
-	a= b = 0;
-
+	a = b = 0;
 	while (b < *usrn)
 	{
 		a = rand();
 		b += 1;
 	}
-
 	return (((unsigned int)a ^ 229) & 63);
 }
 
 /**
  * main - Entry point
- *
  * @argc: arguments count
  * @argv: arguments vector
- * Return: Always 0
+ * Return: 0
  */
 int main(int argc, char **argv)
 {
@@ -99,8 +94,8 @@ int main(int argc, char **argv)
 	a = b = 0;
 	while (b < len)
 	{
-		a = a+ argv[1][b];
-		b = b+ 1;
+		a = a + argv[1][b];
+		b = b + 1;
 	}
 	keygen[1] = ((char *)alph)[(a ^ 79) & 63];
 	/* ----------- f3 ----------- */
@@ -111,7 +106,7 @@ int main(int argc, char **argv)
 		a = argv[1][b] * a;
 		b = b + 1;
 	}
-	keygen[2] = ((char *)alph)[(a^ 85) & 63];
+	keygen[2] = ((char *)alph)[(a ^ 85) & 63];
 	/* ----------- f4 ----------- */
 	keygen[3] = ((char *)alph)[f4(argv[1], len)];
 	/* ----------- f5 ----------- */
