@@ -3,6 +3,12 @@
 #include <stdio.h>
 #include "hash_tables.h"
 
+/**
+ * delete_node - check the code
+ * @node: ...,
+ * Return: Always EXIT_SUCCESS.
+ */
+
 void delete_node(hash_node_t *node)
 {
 	hash_node_t *temp;
@@ -11,11 +17,11 @@ void delete_node(hash_node_t *node)
 	{
 		return;
 	}
-	while(node != NULL)
+	while (node != NULL)
 	{
 		temp = node;
 		node = node->next;
-		if(temp->value)
+		if (temp->value)
 		{
 			free(temp->key);
 			free(temp->value);
@@ -40,7 +46,7 @@ void hash_table_delete(hash_table_t *ht)
 	for (i = 0; i < ht->size; i++)
 	{
 		node  = ht->array[i];
-		if(node != NULL)
+		if (node != NULL)
 		{
 			delete_node(node);
 			ht->array[i] = NULL;

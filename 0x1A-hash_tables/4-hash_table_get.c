@@ -20,12 +20,12 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	}
 	hash_index = key_index((unsigned char *)key, ht->size);
 
-        entry = ht->array[hash_index];
-       	while (entry != NULL)
+	entry = ht->array[hash_index];
+	while (entry != NULL)
 	{
-		if(strcmp(entry->key, key) == 0)
+		if (strcmp(entry->key, key) == 0)
 		{
-			return entry->value;
+			return (entry->value);
 		}
 		entry = entry->next;
 	}

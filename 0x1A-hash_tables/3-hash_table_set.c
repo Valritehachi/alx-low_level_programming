@@ -52,7 +52,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (entry == NULL)
 	{
 		entry = create_node((char *)key, value);
-		if(entry == NULL)
+		if (entry == NULL)
 		{
 			return (0);
 		}
