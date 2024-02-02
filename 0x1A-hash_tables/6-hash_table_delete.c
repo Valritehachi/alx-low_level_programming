@@ -4,7 +4,7 @@
 #include "hash_tables.h"
 
 /**
- * delete_node - check the code
+ * hash_table_delete - check the code
  * @ht: ...,
  * Return: Always EXIT_SUCCESS.
  */
