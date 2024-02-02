@@ -23,14 +23,19 @@ void sorted_list(shash_table_t *ht, shash_node_t *new_node)
 			new_node->sprev = sbucket->sprev;
 
 			if (!sbucket->sprev)
+			{
 				ht->shead = new_node;
+			}
 			else
+			{
 				sbucket->sprev->snext = new_node;
+			}
 			sbucket->sprev = new_node;
 			return;
 		}
 		sbucket = sbucket->snext;
-	} while (sbucket);
+	}
+	while (sbucket);
 	new_node->sprev = ht->stail;
 	new_node->snext = ht->stail->snext;
 	ht->stail->snext = new_node;
@@ -48,12 +53,14 @@ shash_table_t *shash_table_create(unsigned long int size)
 	shash_table_t *table;
 
 	if (size == 0)
+	{
 		return (NULL);
-
+	}
 	table = calloc(1, sizeof(shash_table_t));
 	if (table == NULL)
+	{
 		return (NULL);
-
+	}
 	table->size = size;
 	table->array = calloc(size, sizeof(shash_node_t *));
 	if (table->array == NULL)
@@ -79,10 +86,14 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	shash_node_t  *bucket, *new_node;
 
 	if (!ht || !key || !*key || !value)
+	{
 		return (0);
+	}
 	valuecopy = strdup(value);
 	if (!valuecopy)
+	{
 		return (0);
+	}
 	index = key_index((const unsigned char *)key, ht->size);
 	bucket = ht->array[index];
 
@@ -104,7 +115,9 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	}
 	keycopy = strdup(key);
 	if (!keycopy)
+	{
 		return (0);
+	}
 	new_node->key = keycopy;
 	new_node->value = valuecopy;
 	new_node->next = ht->array[index];
@@ -125,13 +138,17 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 	shash_node_t  *bucket;
 
 	if (!ht || !key || !*key)
+	{
 		return (NULL);
+	}
 	index = key_index((const unsigned char *)key, ht->size);
 	bucket = ht->array[index];
 	while (bucket)
 	{
 		if (!strcmp(key, bucket->key))
+		{
 			return (bucket->value);
+		}
 		bucket = bucket->next;
 	}
 	return (NULL);
@@ -148,13 +165,17 @@ void shash_table_print(const shash_table_t *ht)
 	int not_fin = 0;
 
 	if (!ht)
+	{
 		return;
+	}
 	bucket = ht->shead;
 	printf("{");
 	while (bucket)
 	{
 		if (not_fin)
+		{
 			printf(", ");
+		}
 		printf("'%s': '%s'", bucket->key, bucket->value);
 		not_fin = 1;
 		bucket = bucket->snext;
@@ -172,13 +193,17 @@ void shash_table_print_rev(const shash_table_t *ht)
 	int not_fin = 0;
 
 	if (!ht)
+	{
 		return;
+	}
 	bucket = ht->stail;
 	printf("{");
 	while (bucket)
 	{
 		if (not_fin)
+		{
 			printf(", ");
+		}
 		printf("'%s': '%s'", bucket->key, bucket->value);
 		not_fin = 1;
 		bucket = bucket->sprev;
@@ -196,8 +221,9 @@ void shash_table_delete(shash_table_t *ht)
 	unsigned long int i = 0;
 
 	if (!ht)
+	{
 		return;
-
+	}
 	for (i = 0; i < ht->size; i++)
 	{
 		bucket = ht->array[i];
@@ -206,9 +232,13 @@ void shash_table_delete(shash_table_t *ht)
 			aux_free = bucket;
 			bucket = bucket->next;
 			if (aux_free->key)
+			{
 				free(aux_free->key);
+			}
 			if (aux_free->value)
+			{
 				free(aux_free->value);
+			}
 			free(aux_free);
 		}
 	}
