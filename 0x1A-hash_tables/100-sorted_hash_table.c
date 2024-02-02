@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stddef.h> 
 #include "hash_tables.h"
 
 
@@ -32,7 +36,7 @@ shash_table_t *shash_table_create(unsigned long int size)
 		ht->array[i] = NULL;
 	ht->shead = NULL;
 	ht->stail = NULL;
-	return(ht):
+	return(ht);
 }
 
 /**
