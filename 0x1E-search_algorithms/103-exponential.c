@@ -7,10 +7,13 @@
 	printf("Value found between indexes [%lu] and [%lu]\n", (low), (high))
 
 /**
- * print_array: ...
- * @array: ....
- * @lo: ...
- * @hi: ...
+ * print_array - Print elements of an array.
+ * @array: array pointer.
+ * @lo: Lower arrayindex to print.
+ * @hi: Upper array index to print.
+ *
+ * This function prints the elements of the array between indices @lo and @hi.
+ *
  * Return: 0.
  */
 static void print_array(int *array, size_t lo, size_t hi)
